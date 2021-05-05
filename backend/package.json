@@ -1,0 +1,68 @@
+{
+  "name": "socialapp-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=test nodemon .",
+    "lint-errors": "eslint --ignore-path .gitignore .",
+    "lint": "npm run lint-errors -- --fix",
+    "start:debug": "NODE_ENV=test nodemon --inspect ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:ninja-labs-tech/social-app.git"
+  },
+  "author": "Devanda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ninja-labs-tech/social-app/issues"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run test"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "homepage": "https://github.com/ninja-labs-tech/social-app#readme",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "dotenv": "^8.2.0",
+    "express": "^4.16.2",
+    "express-async-errors": "^3.1.1",
+    "express-http-proxy": "^1.5.0",
+    "express-mung": "^0.5.1",
+    "express-routes-versioning": "^1.0.1",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "mongoose": "^5.9.2",
+    "mongoose-paginate-v2": "^1.3.6",
+    "multer": "^1.3.0",
+    "safe-regex": "^2.1.1",
+    "simpl-schema": "^1.5.7",
+    "uuid": "^3.2.1",
+    "validator": "^11.1.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.1",
+    "expect": "^24.9.0",
+    "husky": "^3.0.8",
+    "lint-staged": "^9.4.1"
+  },
+  "pkg": {
+    "assets": [
+      "node_modules/**/*",
+      "public/.gitkeep"
+    ]
+  }
+}
